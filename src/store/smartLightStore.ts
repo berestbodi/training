@@ -7,7 +7,7 @@ import {
 } from "mobx";
 
 class SmartLightStore {
-  @observable.ref commandQueue: string[] = [];
+  @observable.shallow commandQueue: string[] = [];
   @observable status: "idle" | "processing" = "idle";
 
   constructor() {
@@ -20,7 +20,7 @@ class SmartLightStore {
 
   @action pushCommand(cmd: string) {
     if (this.canAddMore) {
-      this.commandQueue = [...this.commandQueue, cmd];
+      this.commandQueue.push(cmd);
     }
   }
 
@@ -28,8 +28,6 @@ class SmartLightStore {
     if (this.commandQueue.length === 0 || this.status === "processing") return;
 
     this.status = "processing";
-    const command = this.commandQueue[0];
-    console.log(command);
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
 

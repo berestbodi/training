@@ -36,9 +36,7 @@ class TypingSpeedStore {
 
   @action autoClearHistory() {
     const now = Date.now();
-    if (this.isIdle) {
-      this.keyStrokes = this.keyStrokes.filter((r) => now - r.timestamp < 5000);
-    }
+    this.keyStrokes = this.keyStrokes.filter((r) => now - r.timestamp < 5000);
   }
 
   @computed get wordsPerMinute() {
