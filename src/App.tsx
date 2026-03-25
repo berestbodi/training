@@ -1,17 +1,11 @@
-import CommentList from "./components/CommentList";
-import EmojiConsole from "./components/EmojiConsole";
-import PingIndicator from "./components/PingIndicator";
-import SmartLampUI from "./components/SmartLampUI";
-import TypingSpeedMeter from "./components/TypingSpeedMeter";
+import Cart from "./components/Cart/Cart";
+import ProductList from "./components/ProductList/ProductList";
 
 const App = () => {
   return (
     <>
-      <EmojiConsole />
-      <CommentList />
-      <PingIndicator />
-      <SmartLampUI />
-      <TypingSpeedMeter />
+      <Cart />
+      <ProductList />
     </>
   );
 };
