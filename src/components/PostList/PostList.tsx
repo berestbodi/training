@@ -4,28 +4,25 @@ import { postStore } from "../../store/postStore";
 import css from "./PostList.module.css";
 
 const PostList = observer(() => {
-  const { posts, isLoading, fetchPosts } = postStore;
+  const { allPosts, isLoading, fetchPosts } = postStore;
 
   useEffect(() => {
-    if (posts.length === 0) {
+    if (allPosts.length === 0) {
       fetchPosts();
     }
-  }, [fetchPosts, posts.length]);
+  }, [fetchPosts, allPosts.length]);
 
-  if (isLoading)
-    return (
-      <div style={{ color: "white", textAlign: "center" }}>
-        Loading posts...
-      </div>
-    );
+  if (isLoading) {
+    return <div className={css.loadingContainer}>Loading posts...</div>;
+  }
 
   return (
     <div className={css.container}>
-      {posts.map((post) => (
+      {allPosts.map((post) => (
         <article key={post.id} className={css.postCard}>
           <h2 className={css.title}>{post.title}</h2>
 
-          <div style={{ marginBottom: "15px" }}>
+          <div className={css.tagsWrapper}>
             {post.tags.map((tag) => (
               <span key={tag} className={css.tag}>
                 #{tag}
@@ -41,7 +38,7 @@ const PostList = observer(() => {
               <span>👍 {post.reactions.likes}</span>
               <span>👎 {post.reactions.dislikes}</span>
             </div>
-            <span style={{ opacity: 0.5 }}>User ID: {post.userId}</span>
+            <span className={css.userId}>User ID: {post.userId}</span>
           </div>
         </article>
       ))}
