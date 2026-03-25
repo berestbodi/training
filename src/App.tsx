@@ -1,11 +1,9 @@
-import Cart from "./components/Cart/Cart";
-import ProductList from "./components/ProductList/ProductList";
+import PostList from "./components/PostList/PostList";
 
 const App = () => {
   return (
     <>
-      <Cart />
-      <ProductList />
+      <PostList />
     </>
   );
 };
