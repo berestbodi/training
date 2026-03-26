@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import { postStore } from "../../store/postStore";
+import { useService } from "../../inversify.config";
 import css from "./PostList.module.css";
+import { TYPES } from "../../types/types";
+import type { PostStore } from "../../store/postStore";
 
 const PostList = observer(() => {
+  const postStore = useService<PostStore>(TYPES.PostStore);
   const { allPosts, isLoading, fetchPosts } = postStore;
 
   useEffect(() => {

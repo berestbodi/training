@@ -1,3 +1,4 @@
+import { injectable } from "inversify";
 import {
   makeAutoObservable,
   runInAction,
@@ -9,7 +10,8 @@ import {
 import type { Post } from "../types/post";
 import { getPosts } from "../services/getPosts";
 
-class PostStore {
+@injectable()
+export class PostStore {
   postsMap = observable.map<number, Post>();
   isLoading: boolean = false;
 
@@ -55,5 +57,3 @@ class PostStore {
     }
   };
 }
-
-export const postStore = new PostStore();
