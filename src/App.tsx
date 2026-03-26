@@ -1,9 +1,9 @@
-import PostList from "./components/PostList/PostList";
+import NinjaDashboard from "./components/NinjaDashboard/NinjaDashboard";
 
 const App = () => {
   return (
     <>
-      <PostList />
+      <NinjaDashboard />
     </>
   );
 };

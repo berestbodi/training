@@ -1,0 +1,78 @@
+.container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  min-width: 400px;
+  margin: 30px auto 0;
+  transition: background-color 0.3s ease;
+}
+
+.title {
+  text-align: center;
+  margin-top: 0;
+}
+
+.statusCard {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 8px;
+}
+
+.infoRow {
+  margin-bottom: 5px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.progressBarContainer {
+  width: 100%;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.actionsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.button {
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.button:hover {
+  background-color: #6f6c6c;
+}
+
+.dangerButton {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+
+.successButton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+
+.deathMessage {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
