@@ -24,16 +24,13 @@ container
     return (role: "engineer" | "medic") => container.get<IAstronaut>(role);
   });
 
-// Створюємо контекст для контейнера
 export const InversifyContext = createContext<Container>(container);
 
-// Тепер це справжній хук
 export function useService<T>(identifier: symbol | string): T {
   const ctx = useContext(InversifyContext);
   return ctx.get<T>(identifier);
 }
 
-// Утиліта для отримання сервісу ПОЗА хуками
 export const getService = <T>(id: symbol | string): T => container.get<T>(id);
 
 export { container };
