@@ -1,0 +1,60 @@
+.stationWrapper {
+  padding: 25px;
+  background: #1a1a2e;
+  color: #e2e2e2;
+  border-radius: 16px;
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.section {
+  background: #16213e;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #0f3460;
+}
+
+.statusText {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.button {
+  background: #4ecca3;
+  color: #1a1a2e;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  transition: transform 0.1s;
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+.button:hover {
+  background: #45b293;
+}
+
+.logList {
+  list-style: none;
+  padding: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.droneId {
+  color: #4ecca3;
+  font-family: monospace;
+  font-weight: bold;
+}
