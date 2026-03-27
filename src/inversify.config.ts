@@ -15,8 +15,8 @@ container
   .to(OxygenGenerator)
   .inSingletonScope();
 container.bind<RepairDrone>(TYPES.Drone).to(RepairDrone).inTransientScope();
-container.bind<Engineer>("engineer").to(Engineer);
-container.bind<Medic>("medic").to(Medic);
+container.bind<Engineer>("engineer").toSelf();
+container.bind<Medic>("medic").toSelf();
 
 container
   .bind<(role: "engineer" | "medic") => IAstronaut>(TYPES.AstronautFactory)
