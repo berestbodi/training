@@ -1,21 +1,17 @@
 import { injectable } from "inversify";
-import { action, makeObservable, observable, runInAction } from "mobx";
+import { action, makeObservable, observable } from "mobx";
 
 @injectable()
 export class WeatherService {
-  @observable public temperature: number = 20;
+  @observable public temperature: number;
 
   constructor() {
     makeObservable(this);
-    this.startPolling();
+    this.temperature = Math.floor(Math.random() * 15) + 15;
   }
 
-  private startPolling() {
-    setInterval(() => {
-      runInAction(() => {
-        this.temperature += Math.random() > 0.5 ? 1 : -1;
-      });
-    }, 5000);
+  @action public updateTemperature(delta: number) {
+    this.temperature += delta;
   }
 }
 

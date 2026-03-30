@@ -13,36 +13,79 @@ const SmartRoom = observer(({ name }: Props) => {
   const [roomStore] = React.useState(() =>
     useService<RoomStore>(TYPES.RoomStore),
   );
-  const { bulb, fan, heater } = roomStore;
+
+  const { bulb, fan, heater, isAutoMode, targetTemperature } = roomStore;
+  const cardClassName = `${css.roomCard} ${bulb.isOn ? css.lightOn : ""}`;
 
   return (
-    <div className={css.roomCard}>
+    <div className={cardClassName}>
       <h2 className={css.roomTitle}>🏠 {name}</h2>
 
       <div className={css.weatherSection}>
-        <strong>Температура:</strong>
-        <span className={css.temperatureValue}>{roomStore.temperature}°C</span>
+        <div className={css.tempMain}>
+          <span className={css.tempLabel}>Зараз:</span>
+          <span className={css.temperatureValue}>
+            {roomStore.temperature}°C
+          </span>
+        </div>
+
+        {isAutoMode && (
+          <div className={css.targetDisplay}>
+            <span className={css.tempLabel}>Ціль:</span>
+            <span className={css.targetValue}>{targetTemperature}°C</span>
+          </div>
+        )}
       </div>
 
-      {/* Світло */}
-      <div className={css.controls}>
+      <div className={css.thermostatSection}>
+        <label className={css.checkboxLabel}>
+          <input
+            type="checkbox"
+            checked={isAutoMode}
+            onChange={() => roomStore.toggleAutoMode()}
+          />
+          Автоматичний термостаat
+        </label>
+
+        {isAutoMode && (
+          <div className={css.targetControls}>
+            <button
+              className={css.smallButton}
+              onClick={() =>
+                roomStore.setTargetTemperature(targetTemperature - 1)
+              }
+            >
+              -
+            </button>
+            <button
+              className={css.smallButton}
+              onClick={() =>
+                roomStore.setTargetTemperature(targetTemperature + 1)
+              }
+            >
+              +
+            </button>
+          </div>
+        )}
+      </div>
+
+      <hr className={css.divider} />
+
+      <div className={css.controlRow}>
         <span>Світло: {bulb.isOn ? "💡" : "🌑"}</span>
         <button
-          className={`${css.button} ${bulb.isOn ? css.buttonOn : css.buttonOff}`}
+          className={`${css.buttonlight} ${bulb.isOn ? css.buttonOn : css.buttonOff}`}
           onClick={() => bulb.toggle()}
         >
           {bulb.isOn ? "Вимкнути" : "Увімкнути"}
         </button>
       </div>
 
-      <hr className={css.divider} />
-
-      {/* Клімат-контроль */}
       <div className={css.climateControls}>
         <div className={css.controlRow}>
           <span>❄️ Охолодження:</span>
           <button
-            className={`${css.button} ${fan.isOn ? css.buttonActive : ""}`}
+            className={`${css.button} ${fan.isOn ? css.buttonActiveCool : ""}`}
             onClick={() => roomStore.toggleClimate("cooling")}
           >
             {fan.isOn ? "Працює" : "Запустити"}
@@ -52,7 +95,7 @@ const SmartRoom = observer(({ name }: Props) => {
         <div className={css.controlRow}>
           <span>🔥 Підігрів:</span>
           <button
-            className={`${css.button} ${heater.isOn ? css.buttonActive : ""}`}
+            className={`${css.button} ${heater.isOn ? css.buttonActiveHeat : ""}`}
             onClick={() => roomStore.toggleClimate("heating")}
           >
             {heater.isOn ? "Працює" : "Запустити"}

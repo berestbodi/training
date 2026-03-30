@@ -6,6 +6,12 @@
   background: #16213e;
   color: #fff;
   min-width: 250px;
+  transition: all 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+.roomCard:hover {
+  transform: scale(101%);
 }
 
 .roomTitle {
@@ -38,6 +44,16 @@
   transition: background 0.2s ease;
 }
 
+.buttonlight {
+  padding: 8px 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
 .buttonOn {
   background: #f39c12;
 }
@@ -46,7 +62,8 @@
   background: #4ecca3;
 }
 
-.button:hover {
+.button:hover,
+.buttonlight:hover {
   opacity: 0.9;
 }
 
@@ -71,4 +88,73 @@
 .buttonActive {
   background-color: #e74c3c !important;
   color: white;
+}
+
+.thermostatSection {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.targetControls {
+  display: flex;
+  gap: 5px;
+}
+
+.smallButton {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #444;
+  background: #333;
+  color: white;
+  border-radius: 4px;
+}
+
+.buttonActiveCool {
+  background-color: #3498db !important;
+}
+.buttonActiveHeat {
+  background-color: #e74c3c !important;
+}
+
+.roomCard {
+  border: 2px solid #4ecca3;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 12px;
+  background: #16213e;
+  color: #fff;
+  min-width: 250px;
+  transition:
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.lightOn {
+  border-color: #f1c40f;
+  box-shadow: 0 0 20px 5px rgba(241, 196, 15, 0.3);
+}
+
+.roomTitle {
+  color: #4ecca3;
+  margin-top: 0;
+  transition: color 0.4s ease;
+}
+
+.lightOn .roomTitle {
+  color: #f1c40f;
+}
+
+.lightOn {
+  border-color: #f1c40f;
+  box-shadow: 0 0 20px 5px rgba(241, 196, 15, 0.3);
+}
+
+.lightOn:hover {
+  box-shadow: 0 0 30px 8px rgba(241, 196, 15, 0.5);
 }

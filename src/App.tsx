@@ -4,9 +4,9 @@ const App = () => {
   return (
     <>
       <SmartRoom name={"Спальня"} />
-      <SmartRoom name={"Rv"} />
-      <SmartRoom name={"Спаfsdльня"} />
-      <SmartRoom name={"Спаfsfльня"} />
+      <SmartRoom name={"Ванна"} />
+      <SmartRoom name={"Кухня"} />
+      <SmartRoom name={"redroom"} />
     </>
   );
 };
