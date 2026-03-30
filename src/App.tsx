@@ -1,9 +1,12 @@
-import StationControl from "./components/StationControl/StationControl";
+import SmartRoom from "./components/SmartRoom/SmartRoom";
 
 const App = () => {
   return (
     <>
-      <StationControl />
+      <SmartRoom name={"Спальня"} />
+      <SmartRoom name={"Rv"} />
+      <SmartRoom name={"Спаfsdльня"} />
+      <SmartRoom name={"Спаfsfльня"} />
     </>
   );
 };
